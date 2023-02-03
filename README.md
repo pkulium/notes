@@ -7,10 +7,6 @@ and showed how the decentralized implementation of MAML, which we called Per-Fed
 used to solve the proposed personalized FL problem. We also characterized the overall complexity of
 Per-FedAvg for achieving first-order optimality in nonconvex settings. 
 
-- **Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization**
-    > This paper provides a general framework to analyze the convergence of heterogeneous federated optimization algorithms. It subsumes previously proposed methods such as FedAvg and FedProx, and provides the first principled understanding of the solution bias and the convergence slowdown due to objective
-inconsistency. Using insights from this analysis, we propose FedNova, a normalized averaging method that eliminates objective inconsistency while preserving
-fast error convergence
 
 - **Attack of the Tails: Yes, You Really Can Backdoor Federated Learning**
     > We first establish that if a model is vulnerable to inference-time attacks in the
