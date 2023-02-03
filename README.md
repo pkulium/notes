@@ -159,3 +159,12 @@ and communication efficiency.
     >  In this paper, we study non-IID data as one key challenge in such distributed databases, and develop a benchmark named NIID- bench. Specifically, we introduce six data partitioning strate- gies which are much more comprehensive than the previous studies. Furthermore, we conduct comprehensive experiments to compare existing algorithms and demonstrate their strength and weakness.
 
 
+- **Federated Optimization for Heterogeneous Networks**
+    > We propose a federated optimization framework for heterogeneous networks, FedProx, which encompasses FedAvg. In order to characterize the convergence behavior of FedProx, we invoke a device dissimilarity assumption in the network. Under this assumption, we provide the first convergence guarantees for FedProx. Finally, we demonstrate that our theoretical assumptions reflect empirical performance, and that FedProx can improve the robustness and stability of convergence over FedAvg when data is heterogeneous across devices.
+
+    
+- **SCAFFOLD: Stochastic Controlled Averaging for Federated Learning**
+    > We then proposed a new stochastic algorithm (SCAFFOLD) which overcomes gradient dissimilarity using control variates. We demonstrated the effectiveness of SCAFFOLD via strong convergence guarantees and empirical evaluations. Further, we showed that while SCAFFOLD is always at least as fast as SGD, it can be much faster depending on the Hessian dissimilarity in our data. Thus, different algorithms can take advantage of (and are limited by) different notions of dissimilarity. 
+
+- **Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization**
+    > This paper provides a general framework to analyze the convergence of federated heterogeneous optimization algorithms. It subsumes previously proposed methods such as FedAvg and FedProx and provides the first principled understanding of the solution bias and the convergence slowdown due to objective inconsistency. Using insights from this analysis, we propose FedNova, a normalized averaging method that eliminates objective inconsistency while preserving fast error convergence
