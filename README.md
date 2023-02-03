@@ -34,8 +34,7 @@ their potential of leaking private information. Provable differential privacy po
 way to guarantee security, even for aggregated gradients of larger batches of data points.
 
 - **Ensemble Distillation for Robust Model Fusion in Federated Learning**
-    > We propose a distillation framework for robust federated model fusion, which allows for heterogeneous client models and data, and is robust to the choices of neural architectures. We show in extensive numerical experiments on various CV/NLP datasets (CIFAR-10/100, ImageNet, AG News, SST2) and settings (heterogeneous models and/or data) that the server model
-can be trained much faster, requiring fewer communication rounds than any existing FL technique.
+    > We propose a distillation framework for robust federated model fusion, which allows for heterogeneous client models and data, and is robust to the choices of neural architectures. We show in extensive numerical experiments on various CV/NLP datasets (CIFAR-10/100, ImageNet, AG News, SST2) and settings (heterogeneous models and/or data) that the server model can be trained much faster, requiring fewer communication rounds than any existing FL technique.
 
 - **Federated Learning with Only Positive Labels**
     > We studied a novel learning setting, federated learning with only positive labels, and proposed an algorithm that can learn a high-quality classification model without requiring negative instance and label pairs. The idea is to impose a geometric regularization on the server side to make all class embeddings spreadout. We justified the proposed method both theoretically and empirically.
@@ -65,4 +64,101 @@ can be trained much faster, requiring fewer communication rounds than any existi
     > We investigate a new vector for backdoor attacks: code poisoning. Machine learning pipelines include code from open-source and proprietary repositories, managed via build and integration tools. Code management platforms are known vectors for malicious code injection, enabling attackers to directly modify source and binary code
 
 - **SparseFed: Mitigating Model Poisoning Attacks in Federated Learning with Sparsification**
-    > 
+    > In this work, we present SparseFed, a new optimization algorithm for federated learning that can train high-quality models under these constraints while greatly mitigating model poisoning attacks. We describe SparseFed in detail in Section 2, but the main idea is intuitive: at each round, participating devices compute an update on their local data and clip the update. The server computes the aggregate gradient, and only updates the topk highest magnitude elements.
+
+- **Data-Free Knowledge Distillation for Heterogeneous Federated Learning**
+    >In this paper, we propose an FL paradigm that enables efficient knowledge distillation to address user heterogeneity without requiring any external data. Extensive empirical experiments, guided by theoretical implications, have shown that our proposed approach can benefit federated learning with better generalization performance using less communication rounds.
+    
+- **On Large-Cohort Training for Federated Learning**
+    >In this work we explore the benefits and limitations of large-cohort training in federated learning. As
+    discussed in Sections 3.5 and 5, focusing on the number of communication rounds often obscures
+    the data efficiency of a method. This in turn impacts many metrics important to society, such as
+    total energy consumption or total carbon emissions. While we show that large-cohort training can
+    negatively impact such metrics by reducing data-efficiency (see Section 3.5 and Appendix B.5), a
+    more specialized focus on these issues is warranted
+
+- **A Reputation Mechanism Is All You Need: Collaborative Fairness and Adversarial Robustness in Federated Learning**
+    >We propose a Robust and Fair Federated Learning (RFFL) framework to simultaneously achieve collaborative fairness and adversarial robustness. RFFL utilizes a reputation system to iteratively calculate participants’ contributions and reward participants accordingly with different models of performance commensurate with their contributions.
+
+- **PERSONALIZED FEDERATED LEARNING WITH FIRST ORDER MODEL OPTIMIZATION**
+    >We propose a flexible federated learning framework that allows clients to personalize to specific target data distributions irrespective of their available local training data. 2. Withinthisframework,weintroduceamethodtoefficientlycalculatetheoptimalweighted combination of uploaded models as a personalized federated update 3. Our method strongly outperforms other methods in non-IID federated learning settings.
+
+- **HETEROFL: COMPUTATION AND COMMUNICATION EFFICIENT FEDERATED LEARNING FOR HETEROGE- NEOUS CLIENTS**
+    >In this work, we propose a new federated learning framework named HeteroFL to address heterogeneous clients equipped with very different computation and communication capabilities. Our solution can enable the training of heterogeneous local models with varying computation com- plexities and still produce a single global inference model
+
+- **FEDBE: MAKING BAYESIAN MODEL ENSEMBLE APPLICABLE TO FEDERATED LEARNING**
+    >In this paper, we propose a novel aggregation algorithm named FEDBE, which takes a Bayesian inference perspective by sampling
+    higher-quality global models and combining them via Bayesian model Ensemble,
+    leading to much robust aggregation. We show that an effective model distribution
+    can be constructed by simply fitting a Gaussian or Dirichlet distribution to the local
+    models.
+
+
+- **HybridAlpha: An Efficient Approach for Privacy-Preserving Federated Learning**
+    >In this paper, we propose HybridAlpha, an approach for privacy-preserving
+    federated learning employing an SMC protocol based on functional
+    encryption. This protocol is simple, efficient and resilient to participants dropping out. We evaluate our approach regarding the
+    training time and data volume exchanged using a federated learning
+    process to train a CNN on the MNIST data set
+
+- **HybridAlpha: Deep Models Under the GAN: Information Leakage from Collaborative Deep Learning**
+    >We devise a new attack on distributed deep learning based on GANs. Our attack is more generic and effective than current information extraction mechanisms. The attack we devise is also effective when parameters are obfuscated via differential privacy. 
+
+
+- **Personalized Federated Learning with Moreau Envelopes**
+    >In this paper, we propose pFedMe as a personalized FL algorithm that can adapt to the statistical
+diversity issue to improve the FL performance. Our approach makes use of the Moreau envelope
+function which helps decompose the personalized model optimization from global model learning,
+which allows pFedMe to update the global model similarly to FedAvg, yet in parallel to optimize the
+personalized model w.r.t each client’s local data distribution
+
+
+- **CRFL: Certifiably Robust Federated Learning against Backdoor Attacks**
+    >In this paper, we propose pFedMe as a personalized FL algorithm that can adapt to the statistical
+diversity issue to improve the FL performance. Our approach makes use of the Moreau envelope
+function which helps decompose the personalized model optimization from global model learning,
+which allows pFedMe to update the global model similarly to FedAvg, yet in parallel to optimize the
+personalized model w.r.t each client’s local data distribution
+
+ 
+
+
+- **DeepSight: Mitigating Backdoor Attacks in Federated Learning Through Deep Model Inspection**
+    > We present several new techniques (DDifs, NEUPs, Threshold Exceedings) to infer information about a model’s training data, identify similar models, and measure the homogeneity of model updates. By performing a deep inspection of the models’ structure and their predictions, DeepSight can effectively mitigate state-of-the-art poisoning attacks and is robust against sophisticated attacks, without degrading the performance of the aggregated model.
+
+
+- **FEDERATED LEARNING BASED ON DYNAMIC REGULARIZATION**
+    >  FedDyn is based on exact minimization, wherein at each round, each participating device, dynamically
+updates its regularizer so that the optimal model for the regularized loss is in conformity with the
+global empirical loss. Our approach is different from prior works that attempt to parallelize gradient
+computation, and in doing so they tradeoff target accuracy with communications, and necessitate
+inexact minimization
+
+- **An Efficient Framework for Clustered Federated Learning**
+    >  We address the problem of Federated Learning (FL) where users are distributed
+and partitioned into clusters. This setup captures settings where different groups
+of users have their own objectives (learning tasks) but by aggregating their data
+with others in the same cluster (same learning task), they can leverage the strength
+in numbers in order to perform more efficient Federated Learning. We propose
+a new framework dubbed the Iterative Federated Clustering Algorithm (IFCA),
+which alternately estimates the cluster identities of the users and optimizes model
+parameters for the user clusters via gradient descent
+
+
+- **FEDBN: FEDERATED LEARNING ON NON-IID FEATURES VIA LOCAL BATCH NORMALIZATION**
+    >  This work proposes a novel federated learning aggregation method called FedBN that keeps the
+local Batch Normalization parameters not synchronized with the global model, such that it mitigates
+feature shifts in non-IID data. We provide convergence guarantees for FedBN in realistic federated
+settings under the overparameterized neural networks regime, while also accounting for practical
+issues
+
+- **ADAPTIVE FEDERATED OPTIMIZATION**
+    >  In this work, we propose federated versions of adaptive optimizers, including ADAGRAD, ADAM, and YOGI,
+and analyze their convergence in the presence of heterogeneous data for general
+nonconvex settings. Our results highlight the interplay between client heterogeneity
+and communication efficiency.
+
+- **Federated Learning on Non-IID Data Silos: An Experimental Study**
+    >  In this paper, we study non-IID data as one key challenge in such distributed databases, and develop a benchmark named NIID- bench. Specifically, we introduce six data partitioning strate- gies which are much more comprehensive than the previous studies. Furthermore, we conduct comprehensive experiments to compare existing algorithms and demonstrate their strength and weakness.
+
+
