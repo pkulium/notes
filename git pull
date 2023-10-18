@@ -1,0 +1,17 @@
+git pull
+#python -m pdb  Bases.py  --defense fedavg --config imagenet --backdoor neurotoxin  --model resnet18
+python Bases.py  --defense fedavg --config imagenet --backdoor neurotoxin  --model resnet18
+python Bases.py  --defense fedavg --config imagenet --backdoor ff  --model resnet18
+python Bases.py  --defense fedavg --config imagenet --backdoor naive  --model resnet18
+python Bases.py  --defense fedavg --config imagenet --backdoor dba  --model resnet18
+
+python Bases.py  --defense ensemble-distillation --config imagenet --backdoor neurotoxin  --model resnet18
+python Bases.py  --defense ensemble-distillation --config imagenet --backdoor ff  --model resnet18
+python Bases.py  --defense ensemble-distillation --config imagenet --backdoor naive  --model resnet18
+python Bases.py  --defense ensemble-distillation --config imagenet --backdoor dba  --model resnet18
+
+python Bases.py  --defense robustlr --config imagenet --backdoor neurotoxin  --model resnet18
+python Bases.py  --defense robustlr --config imagenet --backdoor ff  --model resnet18
+python Bases.py  --defense robustlr --config imagenet --backdoor naive  --model resnet18
+python Bases.py  --defense robustlr --config imagenet --backdoor dba  --model resnet18
+~
