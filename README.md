@@ -919,3 +919,662 @@ with as little as O(n log n) extra cost for forward computation. Our experiments
 can reduce the memory cost of a 1,000-layer deep residual network from 48G to 7G on ImageNet
 problems. Similarly, significant memory cost reduction is observed in training complex recurrent
 neural networks on very long sequences
+
+- **On Calibration of Modern Neural Networks**
+    > Confidence calibration – the problem of predicting probability estimates representative of the
+true correctness likelihood – is important for
+classification models in many applications. We
+discover that modern neural networks, unlike
+those from a decade ago, are poorly calibrated.
+Through extensive experiments, we observe that
+depth, width, weight decay, and Batch Normalization are important factors influencing calibration. We evaluate the performance of various
+post-processing calibration methods on state-ofthe-art architectures with image and document
+classification datasets. Our analysis and experiments not only offer insights into neural network learning, but also provide a simple and
+straightforward recipe for practical settings: on
+most datasets, temperature scaling – a singleparameter variant of Platt Scaling – is surprisingly effective at calibrating predictions.
+
+ 
+ - **UNDERSTANDING DEEP LEARNING REQUIRES RETHINKING GENERALIZATION**
+    > Through extensive systematic experiments, we show how these traditional approaches fail to explain why large neural networks generalize well in practice.
+Specifically, our experiments establish that state-of-the-art convolutional networks
+for image classification trained with stochastic gradient methods easily fit a random labeling of the training data. This phenomenon is qualitatively unaffected
+by explicit regularization, and occurs even if we replace the true images by completely unstructured random noise. We corroborate these experimental findings
+with a theoretical construction showing that simple depth two neural networks already have perfect finite sample expressivity as soon as the number of parameters
+exceeds the number of data points as it usually does in practice
+
+- **Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time**
+    > The conventional recipe for maximizing model
+accuracy is to (1) train multiple models with various hyperparameters and (2) pick the individual model which performs best on a held-out
+validation set, discarding the remainder. In this
+paper, we revisit the second step of this procedure in the context of fine-tuning large pre-trained
+models, where fine-tuned models often appear
+to lie in a single low error basin. We show that
+averaging the weights of multiple models finetuned with different hyperparameter configurations often improves accuracy and robustness. Unlike a conventional ensemble, we may average
+many models without incurring any additional
+inference or memory costs—we call the results
+“model soups.” When fine-tuning large pre-trained
+models such as CLIP, ALIGN, and a ViT-G pretrained on JFT, our soup recipe provides significant improvements over the best model in a hyperparameter sweep on ImageNet. The resulting ViT-G model, which attains 90.94% top-1
+accuracy on ImageNet, achieved a new state of
+the art. Furthermore, we show that the model
+soup approach extends to multiple image classification and natural language processing tasks,
+improves out-of-distribution performance, and improves zero-shot performance on new downstream
+tasks. Finally, we analytically relate the performance similarity of weight-averaging and logitensembling to flatness of the loss and confidence
+of the predictions, and validate this relation empirically
+
+- **Certifying Some Distributional Robustness with Principled Adversarial Training**
+    > Neural networks are vulnerable to adversarial examples and researchers have proposed many heuristic attack and defense mechanisms. We address this problem through the principled lens of distributionally robust optimization, which guarantees performance under adversarial input perturbations. By considering a Lagrangian penalty formulation of perturbing the underlying data distribution in a Wasserstein ball, we provide a training procedure that augments model parameter updates with worst-case perturbations of training data. For smooth losses, our procedure provably achieves moderate levels of robustness with little computational or statistical cost relative to empirical risk minimization. Furthermore, our statistical guarantees allow us to efficiently certify robustness for the population loss. For imperceptible perturbations, our method matches or outperforms heuristic approaches.
+
+- **SOFT WEIGHT-SHARING FOR NEURAL NETWORK COMPRESSION**
+    > In this paper, we show that competitive
+compression rates can be achieved by using a version of ”soft weight-sharing”
+(Nowlan & Hinton, 1992). Our method achieves both quantization and pruning in
+one simple (re-)training procedure. This point of view also exposes the relation
+between compression and the minimum description length (MDL) principle
+
+
+- **Deep Leakage from Gradients**
+    > we show that it is possible to obtain the
+private training data from the publicly shared gradients. We name this leakage as
+Deep Leakage from Gradient and empirically validate the effectiveness on both
+computer vision and natural language processing tasks. Experimental results show
+that our attack is much stronger than previous approaches: the recovery is pixelwise accurate for images and token-wise matching for texts. Thereby we want to
+raise people’s awareness to rethink the gradient’s safety. We also discuss several
+possible strategies to prevent such deep leakage. Without changes on training
+setting, the most effective defense method is gradient pruning.
+
+- **Setting the Trap: Capturing and Defeating Backdoors in Pretrained Language Models through Honeypots**
+    > In the field of natural language processing, the prevalent approach involves finetuning pretrained language models (PLMs) using local samples. Recent research
+has exposed the susceptibility of PLMs to backdoor attacks, wherein the adversaries
+can embed malicious prediction behaviors by manipulating a few training samples.
+In this study, our objective is to develop a backdoor-resistant tuning procedure that
+yields a backdoor-free model, no matter whether the fine-tuning dataset contains
+poisoned samples. To this end, we propose and integrate a honeypot module into
+the original PLM, specifically designed to absorb backdoor information exclusively.
+Our design is motivated by the observation that lower-layer representations in
+PLMs carry sufficient backdoor features while carrying minimal information about
+the original tasks. Consequently, we can impose penalties on the information
+acquired by the honeypot module to inhibit backdoor creation during the finetuning process of the stem network. Comprehensive experiments conducted on
+benchmark datasets substantiate the effectiveness and robustness of our defensive
+strategy. Notably, these results indicate a substantial reduction in the attack success
+rate ranging from 10% to 40% when compared to prior state-of-the-art methods
+
+
+- **AUTODAN: GENERATING STEALTHY JAILBREAK PROMPTS ON ALIGNED LARGE LANGUAGE MODELS**
+    >  Investigating jailbreak prompts can lead
+us to delve into the limitations of LLMs and further guide us to secure them.
+Unfortunately, existing jailbreak techniques suffer from either (1) scalability issues, where attacks heavily rely on manual crafting of prompts, or (2) stealthiness
+problems, as attacks depend on token-based algorithms to generate prompts that
+are often semantically meaningless, making them susceptible to detection through
+basic perplexity testing. In light of these challenges, we intend to answer this
+question: Can we develop an approach that can automatically generate stealthy
+jailbreak prompts? In this paper, we introduce AutoDAN, a novel jailbreak attack against aligned LLMs. AutoDAN can automatically generate stealthy jailbreak prompts by the carefully designed hierarchical genetic algorithm. Extensive
+evaluations demonstrate that AutoDAN not only automates the process while preserving semantic meaningfulness, but also demonstrates superior attack strength
+in cross-model transferability, and cross-sample universality compared with the
+baseline. Moreover, we also compare AutoDAN with perplexity-based defense
+methods and show that AutoDAN can bypass them effectively
+
+- **Reconstructive Neuron Pruning for Backdoor Defense**
+    > In this paper, we propose a novel defense called Reconstructive Neuron Pruning (RNP) to expose
+and prune backdoor neurons via an unlearning
+and then recovering process. Specifically, RNP
+first unlearns the neurons by maximizing the
+model’s error on a small subset of clean samples and then recovers the neurons by minimizing the model’s error on the same data. In RNP,
+unlearning is operated at the neuron level while
+recovering is operated at the filter level, forming an asymmetric reconstructive learning procedure. We show that such an asymmetric process
+on only a few clean samples can effectively expose and prune the backdoor neurons implanted
+by a wide range of attacks, achieving a new stateof-the-art defense performance. Moreover, the
+unlearned model at the intermediate step of our
+RNP can be directly used to improve other backdoor defense tasks including backdoor removal,
+trigger recovery, backdoor label detection, and
+backdoor sample detection
+
+- **DISTILLING COGNITIVE BACKDOOR PATTERNS WITHIN AN IMAGE**
+    > This paper proposes a simple method to distill and detect backdoor patterns
+within an image: Cognitive Distillation (CD). The idea is to extract the “minimal
+essence” from an input image responsible for the model’s prediction. CD optimizes an input mask to extract a small pattern from the input image that can lead
+to the same model output (i.e., logits or deep features). The extracted pattern can
+help understand the cognitive mechanism of a model on clean vs. backdoor images and is thus called a Cognitive Pattern (CP). Using CD and the distilled CPs,
+we uncover an interesting phenomenon of backdoor attacks: despite the various
+forms and sizes of trigger patterns used by different attacks, the CPs of backdoor
+samples are all surprisingly and suspiciously small. One thus can leverage the
+learned mask to detect and remove backdoor examples from poisoned training
+datasets. We conduct extensive experiments to show that CD can robustly detect a
+wide range of advanced backdoor attacks. We also show that CD can potentially
+be applied to help detect potential biases from face datasets
+
+- **Universal and Transferable Adversarial Attacks on Aligned Language Models**
+    > Because “out-of-the-box” large language models are capable of generating a great
+deal of objectionable content, recent work has focused on aligning these models in an
+attempt to prevent undesirable generation. While there has been some success at circumventing these measures—so-called “jailbreaks” against LLMs—these attacks have
+required significant human ingenuity and are brittle in practice. Attempts at automatic
+adversarial prompt generation have also achieved limited success. In this paper, we
+propose a simple and effective attack method that causes aligned language models to
+generate objectionable behaviors. Specifically, our approach finds a suffix that, when
+attached to a wide range of queries for an LLM to produce objectionable content, aims
+to maximize the probability that the model produces an affirmative response (rather
+than refusing to answer). However, instead of relying on manual engineering, our approach automatically produces these adversarial suffixes by a combination of greedy
+and gradient-based search techniques, and also improves over past automatic prompt
+generation methods.
+Surprisingly, we find that the adversarial prompts generated by our approach are
+quite transferable, including to black-box, publicly released LLMs. Specifically, we train
+an adversarial attack suffix on multiple prompts (i.e., queries asking for many different
+types of objectionable content), as well as multiple models (in our case, Vicuna-7B and
+13B). When doing so, the resulting attack suffix is able to induce objectionable content in the public interfaces to ChatGPT, Bard, and Claude, as well
+as open source LLMs such as LLaMA-2-Chat, Pythia, Falcon, and others. Interestingly, the success rate of this attack transfer is much higher against the GPT-based
+models, potentially owing to the fact that Vicuna itself is trained on outputs from
+ChatGPT. In total, this work significantly advances the state-of-the-art in adversarial
+attacks against aligned language models, raising important questions about how such
+systems can be prevented from producing objectionable information
+
+
+- **You Only Prompt Once: On the Capabilities of Prompt Learning on Large Language Models to Tackle Toxic Content**
+    > y. In this work, we investigate how we
+can use LLMs and prompt learning to tackle the problem of
+toxic content, particularly focusing on three tasks; 1) Toxicity Classification, 2) Toxic Span Detection, and 3) Detoxification. We perform an extensive evaluation over five model
+architectures and eight datasets demonstrating that LLMs
+with prompt learning can achieve similar or even better performance compared to models trained on these specific tasks.
+We find that prompt learning achieves around 10% improvement in the toxicity classification task compared to the baselines, while for the toxic span detection task we find better
+performance to the best baseline (0.643 vs. 0.640 in terms
+of F1-score). Finally, for the detoxification task, we find that
+prompt learning can successfully reduce the average toxicity
+score (from 0.775 to 0.213) while preserving semantic meaning.
+
+- **SELFCHECKGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models**
+    > In this work, we propose "SelfCheckGPT", a
+simple sampling-based approach that can be
+used to fact-check the responses of black-box
+models in a zero-resource fashion, i.e. without an external database. SelfCheckGPT leverages the simple idea that if an LLM has knowledge of a given concept, sampled responses
+are likely to be similar and contain consistent
+facts. However, for hallucinated facts, stochastically sampled responses are likely to diverge
+and contradict one another. We investigate this
+approach by using GPT-3 to generate passages
+about individuals from the WikiBio dataset, and
+manually annotate the factuality of the generated passages. We demonstrate that SelfCheckGPT can: i) detect non-factual and factual sentences; and ii) rank passages in terms of factuality. We compare our approach to several baselines and show that our approach has considerably higher AUC-PR scores in sentence-level
+hallucination detection and higher correlation
+scores in passage-level factuality assessment
+compared to grey-box methods
+
+
+- **SUPERVISED CONTRASTIVE LEARNING FOR PRE-TRAINED LANGUAGE MODEL FINE-TUNING**
+    > State-of-the-art natural language understanding classification models follow twostages: pre-training a large language model on an auxiliary task, and then finetuning the model on a task-specific labeled dataset using cross-entropy loss. However, the cross-entropy loss has several shortcomings that can lead to sub-optimal
+generalization and instability. Driven by the intuition that good generalization
+requires capturing the similarity between examples in one class and contrasting
+them with examples in other classes, we propose a supervised contrastive learning
+(SCL) objective for the fine-tuning stage. Combined with cross-entropy, our proposed SCL loss obtains significant improvements over a strong RoBERTa-Large
+baseline on multiple datasets of the GLUE benchmark in few-shot learning settings,
+without requiring specialized architecture, data augmentations, memory banks, or
+additional unsupervised data. Our proposed fine-tuning objective leads to models
+that are more robust to different levels of noise in the fine-tuning training data, and
+can generalize better to related tasks with limited labeled data.
+
+- **Towards Building the Federated GPT: Federated Instruction Tuning**
+    > . In the current paper, by conducting widely used GPT-4
+auto-evaluation, we demonstrate that by exploiting the heterogeneous and diverse
+sets of instructions on the client’s end with the proposed framework FedIT, we
+improved the performance of LLMs compared to centralized training with only
+limited local instructions. Further, in this paper, we developed a Github repository
+named Shepherd. This repository offers a foundational framework for exploring
+federated fine-tuning of LLMs using heterogeneous instructions across diverse
+categories. The framework is designed for ease of use, adaptability, and scalability
+to accommodate large datasets. Additionally, it facilitates the seamless integration
+of novel algorithms and configurations, making it a convenient tool for researchers
+and practitioners in the NLP community.
+
+
+- **SELF-CONSISTENCY IMPROVES CHAIN OF THOUGHT REASONING IN LANGUAGE MODELS**
+    > Chain-of-thought prompting combined with pre-trained large language models has
+achieved encouraging results on complex reasoning tasks. In this paper, we propose
+a new decoding strategy, self-consistency, to replace the naive greedy decoding
+used in chain-of-thought prompting. It first samples a diverse set of reasoning paths
+instead of only taking the greedy one, and then selects the most consistent answer
+by marginalizing out the sampled reasoning paths. Self-consistency leverages the
+intuition that a complex reasoning problem typically admits multiple different ways
+of thinking leading to its unique correct answer. Our extensive empirical evaluation
+shows that self-consistency boosts the performance of chain-of-thought prompting
+with a striking margin on a range of popular arithmetic and commonsense reasoning
+benchmarks, including GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%),
+StrategyQA (+6.4%) and ARC-challenge (+3.9%).
+
+- **Large Language Models as Tool Makers**
+    > Recent research shows the potential of enhancing the problem-solving ability of
+large language models (LLMs) through the use of external tools. However, prior
+work along this line depends on the availability of existing tools. In this work, we
+take an initial step towards removing this dependency by proposing a closed-loop
+framework, referred to as LLMs As Tool Makers (LATM), where LLMs create
+their own reusable tools for problem-solving. Our approach consists of two key
+phases: 1) tool making: an LLM acts as the tool maker that crafts tools for given
+tasks, where a tool is implemented as a Python utility function. 2) tool using:
+an LLM acts as the tool user, which applies the tool built by the tool maker for
+problem-solving. The tool user can be either the same or a different LLM from the
+tool maker. Tool-making enables an LLM to continually generate tools that can be
+applied to different requests so that future requests can call the corresponding APIs
+when beneficial for solving the tasks. Furthermore, the division of labor among
+LLMs for tool-making and tool-using phases introduces the opportunity to achieve
+cost effectiveness without degrading the quality of generated tools and problem
+solutions. For example, recognizing that tool-making demands more sophisticated
+capabilities than tool-using, we can apply a powerful yet resource-intensive model
+as the tool maker, and a lightweight while cost-effective model as the tool user. We
+validate the effectiveness of our approach across a variety of complex reasoning
+tasks, including Big-Bench tasks. With GPT-4 as the tool maker and GPT-3.5 as
+the tool user, LATM can achieve performance that is on par with using GPT-4 for
+both tool making and tool using, while the inference cost is significantly reduced.
+
+
+- ** STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning**
+    > Generating step-by-step "chain-of-thought" rationales improves language model
+performance on complex reasoning tasks like mathematics or commonsense
+question-answering. However, inducing language model rationale generation currently requires either constructing massive rationale datasets or sacrificing accuracy
+by using only few-shot inference. We propose a technique to iteratively leverage a
+small number of rationale examples and a large dataset without rationales, to bootstrap the ability to perform successively more complex reasoning. This technique,
+the "Self-Taught Reasoner" (STaR), relies on a simple loop: generate rationales to
+answer many questions, prompted with a few rationale examples; if the generated
+answers are wrong, try again to generate a rationale given the correct answer; finetune on all the rationales that ultimately yielded correct answers; repeat. We show
+that STaR significantly improves performance on multiple datasets compared to a
+model fine-tuned to directly predict final answers, and performs comparably to finetuning a 30× larger state-of-the-art language model on CommensenseQA. Thus,
+STaR lets a model improve itself by learning from its own generated reasoning
+
+- ** Large Language Models are Zero-Shot Reasoners**
+    > While these successes are often attributed to LLMs ability for few-shot learning, we show that LLMs are decent zero-shot reasoners
+by simply adding “Let’s think step by step” before each answer. Experimental
+results demonstrate that our Zero-shot-CoT, using the same single prompt template,
+significantly outperforms zero-shot LLM performances on diverse benchmark
+reasoning tasks including arithmetics (MultiArith, GSM8K, AQUA-RAT, SVAMP),
+symbolic reasoning (Last Letter, Coin Flip), and other logical reasoning tasks (Date
+Understanding, Tracking Shuffled Objects), without any hand-crafted few-shot
+examples, e.g. increasing the accuracy on MultiArith from 17.7% to 78.7% and
+GSM8K from 10.4% to 40.7% with large-scale InstructGPT model (text-davinci002), as well as similar magnitudes of improvements with another off-the-shelf
+large model, 540B parameter PaLM. The versatility of this single prompt across
+very diverse reasoning tasks hints at untapped and understudied fundamental
+zero-shot capabilities of LLMs, suggesting high-level, multi-task broad cognitive
+capabilities may be extracted by simple prompting. We hope our work not only
+serves as the minimal strongest zero-shot baseline for the challenging reasoning
+benchmarks, but also highlights the importance of carefully exploring and analyzing
+the enormous zero-shot knowledge hidden inside LLMs before crafting finetuning
+datasets or few-shot exemplars
+
+- **Jailbreaking Black Box Large Language Models in Twenty Queries**
+    > There is growing interest in ensuring that large language models (LLMs) align with human values.
+However, the alignment of such models is vulnerable to adversarial jailbreaks, which coax LLMs into
+overriding their safety guardrails. The identification of these vulnerabilities is therefore instrumental in
+understanding inherent weaknesses and preventing future misuse. To this end, we propose Prompt Automatic
+Iterative Refinement (PAIR), an algorithm that generates semantic jailbreaks with only black-box access to
+an LLM. PAIR—which is inspired by social engineering attacks—uses an attacker LLM to automatically
+generate jailbreaks for a separate targeted LLM without human intervention. In this way, the attacker
+LLM iteratively queries the target LLM to update and refine a candidate jailbreak. Empirically, PAIR often
+requires fewer than twenty queries to produce a jailbreak, which is orders of magnitude more efficient than
+existing algorithms. PAIR also achieves competitive jailbreaking success rates and transferability on open
+and closed-source LLMs, including GPT-3.5/4, Vicuna, and PaLM-2
+
+
+- **Tree of Attacks: Jailbreaking Black-Box LLMs Automatically**
+    > While Large Language Models (LLMs) display versatile functionality, they continue to
+generate harmful, biased, and toxic content, as demonstrated by the prevalence of humandesigned jailbreaks. In this work, we present Tree of Attacks with Pruning (TAP), an automated
+method for generating jailbreaks that only requires black-box access to the target LLM. TAP
+utilizes an LLM to iteratively refine candidate (attack) prompts using tree-of-thought reasoning
+until one of the generated prompts jailbreaks the target. Crucially, before sending prompts
+to the target, TAP assesses them and prunes the ones unlikely to result in jailbreaks. Using
+tree-of-thought reasoning allows TAP to navigate a large search space of prompts and pruning
+reduces the total number of queries sent to the target. In empirical evaluations, we observe that
+TAP generates prompts that jailbreak state-of-the-art LLMs (including GPT4 and GPT4-Turbo)
+for more than 80% of the prompts using only a small number of queries. This significantly
+improves upon the previous state-of-the-art black-box method for generating jailbreaks.
+
+-  **On Second Thought, Let’s Not Think Step by Step! Bias and Toxicity in Zero-Shot Reasoning**
+    > However, prior work has mainly
+focused on logical reasoning tasks (e.g. arithmetic, commonsense QA); it remains unclear
+whether improvements hold for more diverse
+types of reasoning, especially in socially situated contexts. Concretely, we perform a controlled evaluation of zero-shot CoT across two
+socially sensitive domains: harmful questions
+and stereotype benchmarks. We find that zeroshot CoT reasoning in sensitive domains significantly increases a model’s likelihood to produce harmful or undesirable output, with trends
+holding across different prompt formats and
+model variants. Furthermore, we show that
+harmful CoTs increase with model size, but
+decrease with improved instruction following.
+Our work suggests that zero-shot CoT should
+be used with caution on socially important
+tasks, especially when marginalized groups or
+sensitive topics are involved
+
+- **FINETUNED LANGUAGE MODELS ARE ZERO-SHOT LEARNERS**
+    > This paper explores a simple method for improving the zero-shot learning abilities
+of language models. We show that instruction tuning—finetuning language models
+on a collection of datasets described via instructions—substantially improves zeroshot performance on unseen tasks.
+We take a 137B parameter pretrained language model and instruction tune it on
+over 60 NLP datasets verbalized via natural language instruction templates. We
+evaluate this instruction-tuned model, which we call FLAN, on unseen task types.
+FLAN substantially improves the performance of its unmodified counterpart and
+surpasses zero-shot 175B GPT-3 on 20 of 25 datasets that we evaluate. FLAN even
+outperforms few-shot GPT-3 by a large margin on ANLI, RTE, BoolQ, AI2-ARC,
+OpenbookQA, and StoryCloze. Ablation studies reveal that number of finetuning
+datasets, model scale, and natural language instructions are key to the success of
+instruction tuning.
+
+
+- **Language Models are Few-Shot Learners**
+    > Here we show that scaling up language models greatly improves task-agnostic,
+few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art finetuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion
+parameters, 10x more than any previous non-sparse language model, and test its performance in
+the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning,
+with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3
+achieves strong performance on many NLP datasets, including translation, question-answering, and
+cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as
+unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same
+time, we also identify some datasets where GPT-3’s few-shot learning still struggles, as well as some
+datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally,
+we find that GPT-3 can generate samples of news articles which human evaluators have difficulty
+distinguishing from articles written by humans. We discuss broader societal impacts of this finding
+and of GPT-3 in general
+
+
+- **Overcoming catastrophic forgetting in neural networks**
+    > The ability to learn tasks in a sequential fashion is crucial to the development of
+artificial intelligence. Neural networks are not, in general, capable of this and it
+has been widely thought that catastrophic forgetting is an inevitable feature of
+connectionist models. We show that it is possible to overcome this limitation and
+train networks that can maintain expertise on tasks which they have not experienced
+for a long time. Our approach remembers old tasks by selectively slowing down
+learning on the weights important for those tasks. We demonstrate our approach is
+scalable and effective by solving a set of classification tasks based on the MNIST
+hand written digit dataset and by learning several Atari 2600 games sequentially
+
+
+- **FINE-TUNING ALIGNED LANGUAGE MODELS COMPROMISES SAFETY, EVEN WHEN USERS DO NOT INTEND TO** 
+    > Optimizing large language models (LLMs) for downstream use cases often involves the customization of pre-trained LLMs through further fine-tuning. Meta’s open release of Llama models and
+OpenAI’s APIs for fine-tuning GPT-3.5 Turbo on custom datasets also encourage this practice. But,
+what are the safety costs associated with such custom fine-tuning? We note that while existing
+safety alignment infrastructures can restrict harmful behaviors of LLMs at inference time, they
+do not cover safety risks when fine-tuning privileges are extended to end-users. Our red teaming
+studies find that the safety alignment of LLMs can be compromised by fine-tuning with only a
+few adversarially designed training examples. For instance, we jailbreak GPT-3.5 Turbo’s safety
+guardrails by fine-tuning it on only 10 such examples at a cost of less than $0.20 via OpenAI’s APIs,
+making the model responsive to nearly any harmful instructions. Disconcertingly, our research
+also reveals that, even without malicious intent, simply fine-tuning with benign and commonly
+used datasets can also inadvertently degrade the safety alignment of LLMs, though to a lesser
+extent. These findings suggest that fine-tuning aligned LLMs introduces new safety risks that
+current safety infrastructures fall short of addressing — even if a model’s initial safety alignment
+is impeccable, it is not necessarily to be maintained after custom fine-tuning1
+. We outline and
+critically analyze potential mitigations and advocate for further research efforts toward reinforcing
+safety protocols for the custom fine-tuning of aligned LLMs
+
+
+- **LOFTQ: LORA-FINE-TUNING-AWARE QUANTIZATION FOR LARGE LANGUAGE MODELS**
+    > Quantization is an indispensable technique for serving Large Language Models
+(LLMs) and has recently found its way into LoRA fine-tuning (Dettmers et al.,
+2023). In this work we focus on the scenario where quantization and LoRA finetuning are applied together on a pre-trained model. In such cases it is common
+to observe a consistent gap in the performance on downstream tasks between full
+fine-tuning and quantization plus LoRA fine-tuning approach. In response, we
+propose LoftQ (LoRA-Fine-Tuning-aware Quantization), a novel quantization
+framework that simultaneously quantizes an LLM and finds a proper low-rank
+initialization for LoRA fine-tuning. Such an initialization alleviates the discrepancy between the quantized and full-precision model and significantly improves
+the generalization in downstream tasks. We evaluate our method on natural language understanding, question answering, summarization, and natural language
+generation tasks. Experiments show that our method is highly effective and outperforms existing quantization methods, especially in the challenging 2-bit and
+2/4-bit mixed precision regimes. We will release our code.
+
+
+- **Exploiting Unintended Feature Leakage in Collaborative Learning**
+    > Collaborative machine learning and related techniques such as
+federated learning allow multiple participants, each with his
+own training dataset, to build a joint model by training locally and periodically exchanging model updates. We demonstrate that these updates leak unintended information about
+participants’ training data and develop passive and active inference attacks to exploit this leakage. First, we show that
+an adversarial participant can infer the presence of exact data
+points—for example, specific locations—in others’ training
+data (i.e., membership inference). Then, we show how this
+adversary can infer properties that hold only for a subset of
+the training data and are independent of the properties that the
+joint model aims to capture. For example, he can infer when a
+specific person first appears in the photos used to train a binary
+gender classifier. We evaluate our attacks on a variety of tasks,
+datasets, and learning configurations, analyze their limitations,
+and discuss possible defenses.
+
+
+- **From the Detection of Toxic Spans in Online Discussions to the Analysis of Toxic-to-Civil Transfer**
+    > We study the task of toxic spans detection,
+which concerns the detection of the spans that
+make a text toxic, when detecting such spans
+is possible. We introduce a dataset for this
+task, TOXICSPANS, which we release publicly.
+By experimenting with several methods, we
+show that sequence labeling models perform
+best. Moreover, methods that add generic rationale extraction mechanisms on top of classifiers
+trained to predict if a post is toxic or not are
+also surprisingly promising. Finally, we use
+TOXICSPANS and systems trained on it, to provide further analysis of state-of-the-art toxic to
+non-toxic transfer systems, as well as of human
+performance on that latter task. Our work highlights challenges in finer toxicity detection and
+mitigation
+
+
+- **Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena**
+    > Evaluating large language model (LLM) based chat assistants is challenging due to
+their broad capabilities and the inadequacy of existing benchmarks in measuring
+human preferences. To address this, we explore using strong LLMs as judges to
+evaluate these models on more open-ended questions. We examine the usage and
+limitations of LLM-as-a-judge, including position, verbosity, and self-enhancement
+biases, as well as limited reasoning ability, and propose solutions to mitigate some
+of them. We then verify the agreement between LLM judges and human preferences
+by introducing two benchmarks: MT-bench, a multi-turn question set; and Chatbot
+Arena, a crowdsourced battle platform. Our results reveal that strong LLM judges
+like GPT-4 can match both controlled and crowdsourced human preferences well,
+achieving over 80% agreement, the same level of agreement between humans.
+Hence, LLM-as-a-judge is a scalable and explainable way to approximate human
+preferences, which are otherwise very expensive to obtain. Additionally, we show
+our benchmark and traditional benchmarks complement each other by evaluating
+several variants of LLaMA and Vicuna. The MT-bench questions, 3K expert votes,
+and 30K conversations with human preferences are publicly available
+
+- **EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks**
+    > We present EDA: easy data augmentation
+techniques for boosting performance on text
+classification tasks. EDA consists of four simple but powerful operations: synonym replacement, random insertion, random swap, and
+random deletion. On five text classification
+tasks, we show that EDA improves performance for both convolutional and recurrent
+neural networks. EDA demonstrates particularly strong results for smaller datasets; on average, across five datasets, training with EDA
+while using only 50% of the available training set achieved the same accuracy as normal
+training with all available data. We also performed extensive ablation studies and suggest
+parameters for practical use
+
+
+- **SimCSE: Simple Contrastive Learning of Sentence Embeddings**
+    > This paper presents SimCSE, a simple contrastive learning framework that greatly advances the state-of-the-art sentence embeddings. We first describe an unsupervised approach, which takes an input sentence and
+predicts itself in a contrastive objective, with
+only standard dropout used as noise. This
+simple method works surprisingly well, performing on par with previous supervised counterparts. We find that dropout acts as minimal data augmentation and removing it leads
+to a representation collapse. Then, we propose a supervised approach, which incorporates annotated pairs from natural language
+inference datasets into our contrastive learning framework, by using “entailment” pairs
+as positives and “contradiction” pairs as hard
+negatives. We evaluate SimCSE on standard
+semantic textual similarity (STS) tasks, and
+our unsupervised and supervised models using
+BERTbase achieve an average of 76.3% and
+81.6% Spearman’s correlation respectively, a
+4.2% and 2.2% improvement compared to
+previous best results. We also show—both
+theoretically and empirically—that contrastive
+learning objective regularizes pre-trained embeddings’ anisotropic space to be more uniform, and it better aligns positive pairs when
+supervised signals are available
+
+- **Large Language Models Can Be Easily Distracted by Irrelevant Context**  
+    > Large language models have achieved impressive
+performance on various natural language processing tasks. However, so far they have been evaluated primarily on benchmarks where all information in the input context is relevant for solving
+the task. In this work, we investigate the distractibility of large language models, i.e., how
+the model problem-solving accuracy can be influenced by irrelevant context. In particular, we introduce Grade-School Math with Irrelevant Context
+(GSM-IC), an arithmetic reasoning dataset with
+irrelevant information in the problem description.
+We use this benchmark to measure the distractibility of cutting-edge prompting techniques for large
+language models, and find that the model performance is dramatically decreased when irrelevant
+information is included. We also identify several
+approaches for mitigating this deficiency, such
+as decoding with self-consistency and adding to
+the prompt an instruction that tells the language
+model to ignore the irrelevant information
+
+
+- **EDITING MODELS WITH TASK ARITHMETIC**   
+    > In this work, we propose a
+new paradigm for steering the behavior of neural networks, centered around task
+vectors. A task vector specifies a direction in the weight space of a pre-trained
+model, such that movement in that direction improves performance on the task.
+We build task vectors by subtracting the weights of a pre-trained model from the
+weights of the same model after fine-tuning on a task. We show that these task
+vectors can be modified and combined together through arithmetic operations
+such as negation and addition, and the behavior of the resulting model is steered
+accordingly. Negating a task vector decreases performance on the target task, with
+little change in model behavior on control tasks. Moreover, adding task vectors
+together can improve performance on multiple tasks at once. Finally, when tasks are
+linked by an analogy relationship of the form “A is to B as C is to D”, combining
+task vectors from three of the tasks can improve performance on the fourth, even
+when no data from the fourth task is used for training. Overall, our experiments
+with several models, modalities and tasks show that task arithmetic is a simple,
+efficient and effective way of editing models
+
+- **Task Arithmetic in the Tangent Space: Improved Editing of Pre-Trained Models**
+    > Task arithmetic has recently emerged as a cost-effective and scalable approach to
+edit pre-trained models directly in weight space: By adding the fine-tuned weights
+of different tasks, the model’s performance can be improved on these tasks, while
+negating them leads to task forgetting. Yet, our understanding of the effectiveness
+of task arithmetic and its underlying principles remains limited. We present a comprehensive study of task arithmetic in vision-language models and show that weight
+disentanglement is the crucial factor that makes it effective. This property arises during pre-training and manifests when distinct directions in weight space govern separate, localized regions in function space associated with the tasks. Notably, we show
+that fine-tuning models in their tangent space by linearizing them amplifies weight
+disentanglement. This leads to substantial performance improvements across multiple task arithmetic benchmarks and diverse models. Building on these findings, we
+provide theoretical and empirical analyses of the neural tangent kernel (NTK) of
+these models and establish a compelling link between task arithmetic and the spatial
+localization of the NTK eigenfunctions. Overall, our work uncovers novel insights
+into the fundamental mechanisms of task arithmetic and offers a more reliable and
+effective approach to edit pre-trained models through the NTK linearization.
+
+
+- **Why think step by step? Reasoning emerges from the locality of experience**
+    > Humans have a powerful and mysterious capacity to reason. Working through a set of mental steps enables us to make inferences we would not be capable of making directly even though we get no additional data from the world. Similarly, when large language models generate intermediate steps (a chain of thought) before answering a question, they often produce better answers than they would directly. We investigate why and how chain-of-thought reasoning is useful in language models, testing the hypothesis that reasoning is effective when training data consists of overlapping local clusters of variables that influence each other strongly. These training conditions enable the chaining of accurate local inferences to estimate relationships between variables that were not seen together in training. We prove that there will exist a "reasoning gap", where reasoning through intermediate variables reduces bias, for the simple case of an autoregressive density estimator trained on local samples from a chain-structured probabilistic model. We then test our hypothesis experimentally in more complex models, training an autoregressive language model on samples from Bayes nets but only including a subset of variables in each sample. We test language models' ability to match conditional probabilities with and without intermediate reasoning steps, finding that intermediate steps are only helpful when the training data is locally structured with respect to dependencies between variables. The combination of locally structured observations and reasoning is much more data-efficient than training on all variables. Our results illustrate how the effectiveness of reasoning step by step is rooted in the local statistical structure of the training data.
+
+- **Toolformer: Language Models Can Teach Themselves to Use Tools**
+    > Language models (LMs) exhibit remarkable abilities to solve new tasks from just a
+few examples or textual instructions, especially at scale. They also, paradoxically,
+struggle with basic functionality, such as arithmetic or factual lookup, where much
+simpler and smaller specialized models excel. In this paper, we show that LMs
+can teach themselves to use external tools via simple APIs and achieve the best of
+both worlds. We introduce Toolformer, a model trained to decide which APIs to
+call, when to call them, what arguments to pass, and how to best incorporate the
+results into future token prediction. This is done in a self-supervised way, requiring
+nothing more than a handful of demonstrations for each API. We incorporate a
+range of tools, including a calculator, a Q&A system, a search engine, a translation
+system, and a calendar. Toolformer achieves substantially improved zero-shot
+performance across a variety of downstream tasks, often competitive with much
+larger models, without sacrificing its core language modeling abilities
+
+
+- **Reliable Evaluation of Adversarial Robustness with an Ensemble of Diverse Parameter-free Attacks**
+    > The field of defense strategies against adversarial
+attacks has significantly grown over the last years,
+but progress is hampered as the evaluation of adversarial defenses is often insufficient and thus
+gives a wrong impression of robustness. Many
+promising defenses could be broken later on, making it difficult to identify the state-of-the-art. Frequent pitfalls in the evaluation are improper tuning of hyperparameters of the attacks, gradient
+obfuscation or masking. In this paper we first
+propose two extensions of the PGD-attack overcoming failures due to suboptimal step size and
+problems of the objective function. We then combine our novel attacks with two complementary
+existing ones to form a parameter-free, computationally affordable and user-independent ensemble of attacks to test adversarial robustness. We
+apply our ensemble to over 50 models from papers published at recent top machine learning and
+computer vision venues. In all except one of the
+cases we achieve lower robust test accuracy than
+reported in these papers, often by more than 10%,
+identifying several broken defenses.
+
+- **DOLA: DECODING BY CONTRASTING LAYERS IMPROVES FACTUALITY IN LARGE LANGUAGE MODELS**
+    > Despite their impressive capabilities, large language models (LLMs) are prone to hallucinations, i.e., generating content that deviates from facts seen during pretraining. We
+propose a simple decoding strategy for reducing hallucinations with pretrained LLMs
+that does not require conditioning on retrieved external knowledge nor additional finetuning. Our approach obtains the next-token distribution by contrasting the differences
+in logits obtained from projecting the later layers versus earlier layers to the vocabulary
+space, exploiting the fact that factual knowledge in an LLMs has generally been shown to
+be localized to particular transformer layers. We find that this Decoding by Contrasting
+Layers (DoLa) approach is able to better surface factual knowledge and reduce the generation of incorrect facts. DoLa consistently improves the truthfulness across multiple
+choices tasks and open-ended generation tasks, for example improving the performance
+of LLaMA family models on TruthfulQA by 12-17% absolute points, demonstrating its
+potential in making LLMs reliably generate truthful facts
+
+-  **COMPRESSING LLMS: THE TRUTH IS RARELY PURE AND NEVER SIMPLE**
+    > We introduce Knowledge-Intensive Compressed LLM BenchmarK
+(LLM-KICK), a collection of carefully-curated tasks to re-define the evaluation
+protocol for compressed LLMs, which have significant alignment with their dense
+counterparts, and perplexity fail to capture subtle change in their true capabilities. LLM-KICK unveils many favorable merits and unfortunate plights of current SoTA compression methods: all pruning methods suffer significant performance degradation, sometimes at trivial sparsity ratios (e.g., 25-30%), and fail
+for N:M sparsity on knowledge-intensive tasks; current quantization methods are
+more successful than pruning; yet, pruned LLMs even at ≥ 50% sparsity are robust in-context retrieval and summarization systems; among others. LLM-KICK
+is designed to holistically access compressed LLMs’ ability for language understanding, reasoning, generation, in-context retrieval, in-context summarization,
+etc 
+
+
+- **BEYOND MEMORIZATION: VIOLATING PRIVACY VIA INFERENCE WITH LARGE LANGUAGE MODELS**
+    > e. In this work, we present the first comprehensive study on the capabilities of pretrained LLMs to infer personal attributes
+from text. We construct a dataset consisting of real Reddit profiles, and show that
+current LLMs can infer a wide range of personal attributes (e.g., location, income,
+sex), achieving up to 85% top-1 and 95.8% top-3 accuracy at a fraction of the cost
+(100×) and time (240×) required by humans. As people increasingly interact with
+LLM-powered chatbots across all aspects of life, we also explore the emerging
+threat of privacy-invasive chatbots trying to extract personal information through
+seemingly benign questions. Finally, we show that common mitigations, i.e., text
+anonymization and model alignment, are currently ineffective at protecting user
+privacy against LLM inference. Our findings highlight that current LLMs can infer personal data at a previously unattainable scale. In the absence of working
+defenses, we advocate for a broader discussion around LLM privacy implications
+beyond memorization, striving for a wider privacy protection
+
+
+- **DO LARGE LANGUAGE MODELS KNOW ABOUT FACTS?**
+    > Unlike conventional Knowledge Bases (KBs) that explicitly store factual knowledge, LLMs implicitly store facts in their parameters. Content generated by the
+LLMs can often exhibit inaccuracies or deviations from the truth, due to facts that
+can be incorrectly induced or become obsolete over time. To this end, we aim to
+comprehensively evaluate the extent and scope of factual knowledge within LLMs
+by designing the benchmark Pinocchio. Pinocchio contains 20K diverse factual
+questions that span different sources, timelines, domains, regions, and languages.
+Furthermore, we investigate whether LLMs are able to compose multiple facts,
+update factual knowledge temporally, reason over multiple pieces of facts, identify
+subtle factual differences, and resist adversarial examples. Extensive experiments
+on different sizes and types of LLMs show that existing LLMs still lack factual
+knowledge and suffer from various spurious correlations. We believe this is a
+critical bottleneck for realizing trustworthy artificial intelligence. The dataset
+Pinocchio and our codes will be publicly available.
+
+- **JAILBREAK IN PIECES: COMPOSITIONAL ADVERSARIAL ATTACKS ON MULTI-MODAL LANGUAGE MODELS**
+    > We introduce new jailbreak attacks on vision language models (VLMs), which
+use aligned LLMs and are resilient to text-only jailbreak attacks. Specifically, we
+develop cross-modality attacks on alignment where we pair adversarial images
+going through the vision encoder with textual prompts to break the alignment of the
+language model. Our attacks employ a novel compositional strategy that combines
+an image, adversarially targeted towards toxic embeddings, with generic prompts
+to accomplish the jailbreak. Thus, the LLM draws the context to answer the generic
+prompt from the adversarial image. The generation of benign-appearing adversarial
+images leverages a novel embedding-space-based methodology, operating with no
+access to the LLM model. Instead, the attacks require access only to the vision
+encoder and utilize one of our four embedding space targeting strategies. By
+not requiring access to the LLM, the attacks lower the entry barrier for attackers,
+particularly when vision encoders such as CLIP are embedded in closed-source
+LLMs. The attacks achieve a high success rate across different VLMs, highlighting
+the risk of cross-modality alignment vulnerabilities, and the need for new alignment
+approaches for multi-modal models.
+
+
+- **CAN SENSITIVE INFORMATION BE DELETED FROM LLMS? OBJECTIVES FOR DEFENDING AGAINST EXTRACTION ATTACKS**
+    > Pretrained language models sometimes possess knowledge that we do not wish
+them to, including memorized personal information and knowledge that could be
+used to harm people. They can also output toxic or harmful text. To mitigate these
+safety and informational issues, we propose an attack-and-defense framework for
+studying the task of deleting sensitive information directly from model weights.
+We study direct edits to model weights because (1) this approach should guarantee
+that particular deleted information is never extracted by future prompt attacks, and
+(2) it should protect against whitebox attacks, which is necessary for making claims
+about safety/privacy in a setting where publicly available model weights could
+be used to elicit sensitive information. Our threat model assumes that an attack
+succeeds if the answer to a sensitive question is located among a set of B generated
+candidates, based on scenarios where the information would be insecure if the
+answer is among B candidates. Experimentally, we show that even state-of-the-art
+model editing methods such as ROME struggle to truly delete factual information
+from models like GPT-J, as our whitebox and blackbox attacks can recover “deleted”
+information from an edited model 38% of the time. These attacks leverage two key
+observations: (1) that traces of deleted information can be found in intermediate
+model hidden states, and (2) that applying an editing method for one question
+may not delete information across rephrased versions of the question. Finally,
+we provide new defense methods that protect against some extraction attacks, but
+we do not find a single universally effective defense method. Our results suggest
+that truly deleting sensitive information is a tractable but difficult problem, since
+even relatively low attack success rates have potentially severe implications for the
+deployment of language models in a world where individuals enjoy ownership of
+their personal data, a right to privacy, and safety from harmful model outputs
